@@ -11,11 +11,13 @@ export class RadioButtonListComponent implements OnInit {
   @Input() items: string[];
   @Output() onSelectedItemChanged = new EventEmitter<string>();
 
+  radioButtonName: string;
   radioButton: FormControl;
 
   constructor() {}
 
   ngOnInit(): void {
+    this.radioButtonName = `radio_btn_${Math.trunc(Math.random() * 100000000)}`;
     this.radioButton = new FormControl(this.items[0]);
     this.radioButton.valueChanges.subscribe(this.onValueChanged.bind(this));
   }

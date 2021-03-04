@@ -3,7 +3,7 @@
     <div id="radio-btn-container">
         <span *ngFor="let item of items; let idx = index" class="radio-btn-span">
             <label>
-                <input type="radio" [formControl]="radioButton" [value]="item"/>
+                <input type="radio" [formControl]="radioButton" [value]="item" [name]="radioButtonName"/>
                 {{item}}
             </label>
         </span>
