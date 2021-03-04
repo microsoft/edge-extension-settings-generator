@@ -5,7 +5,7 @@ import AllowedTypes, {
 import BlockedPermissions, {
   Permissions,
 } from 'src/core/KeyValuePair/BlockedPermissions';
-import InstallationMode from 'src/core/KeyValuePair/InstallationMode';
+import InstallationMode, {Modes as InstallationModes} from 'src/core/KeyValuePair/InstallationMode';
 import InstallSources from 'src/core/KeyValuePair/InstallSources';
 import RuntimeAllowedHosts from 'src/core/KeyValuePair/RuntimeAllowedHosts';
 import RuntimeBlockedHosts from 'src/core/KeyValuePair/RuntimeBlockedHosts';
@@ -30,6 +30,13 @@ export class RuleEditorComponent implements OnInit {
 
   permissionsList = Permissions.getList();
   extensionTypesList = ExtensionTypes.getList();
+
+  get installationModes(): string[] {
+    if (this.isExtensionRule()) {
+      return InstallationModes.getListForExtensionScope();
+    }
+    return InstallationModes.getListForGlobalScope()
+  }
 
   constructor() {}
 

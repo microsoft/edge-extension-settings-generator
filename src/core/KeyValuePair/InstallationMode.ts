@@ -9,13 +9,16 @@ export class Modes {
     normalInstalled: 'normal_installed',
     removed: 'removed',
   };
-  static getList(): string[] {
+  static getListForExtensionScope(): string[] {
     return Object.values(Modes.mode);
+  }
+  static getListForGlobalScope(): string[] {
+    return [this.mode.allowed, this.mode.blocked, this.mode.removed];
   }
 }
 
 export default class InstallationMode extends ValidatedKeyValuePair {
-  private validator = new ExactMatchValidator(Modes.getList());
+  private validator = new ExactMatchValidator(Modes.getListForExtensionScope());
   static key: string = 'installation_mode';  
 
   constructor(installationMode: string) {
