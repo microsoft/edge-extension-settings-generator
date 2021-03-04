@@ -1,0 +1,17 @@
+#container {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+}
+
+#container > div {
+    margin: 10px;
+}
+
+#title-box {
+    flex-grow: 1;
+}
+
+#rule-creator {
+    flex-grow: 100;
+}
