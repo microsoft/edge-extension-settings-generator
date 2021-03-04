@@ -1,9 +1,9 @@
-import { UrlMatchPatternRegex } from '../constants';
+import { UrlRegex } from '../constants';
 import { ValidatedKeyValuePair } from './KeyValuePair';
 import RegexValidator from './Validators/RegexValidator';
 
 export default class UpdateUrl extends ValidatedKeyValuePair {
-  private validator = new RegexValidator(UrlMatchPatternRegex);
+  private validator = new RegexValidator(UrlRegex);
   static key: string = 'update_url';  
 
   constructor(url: string) {

@@ -1,17 +1,17 @@
 <div id="rule-editor-container">
-    <app-checkbox-list title="Allowed Types" [items]="extensionTypesList" *ngIf="shouldShowComponent(keys.allowedTypes)"></app-checkbox-list>
-    <app-checkbox-list title="Blocked Permissions" [items]="permissionsList" *ngIf="shouldShowComponent(keys.blockedPermissions)"></app-checkbox-list>
-    <app-radio-button-list title="Installation Mode" [items]="installationModes" *ngIf="shouldShowComponent(keys.installationMode)"></app-radio-button-list>
+    <app-checkbox-list title="Allowed Types" [items]="extensionTypesList" *ngIf="shouldShowComponent(keys.allowedTypes)" (onSelectedItemsChanged)="allowedTypesChanged($event)"></app-checkbox-list>
+    <app-checkbox-list title="Blocked Permissions" [items]="permissionsList" *ngIf="shouldShowComponent(keys.blockedPermissions)" (onSelectedItemsChanged)="blockedPermissionsChanged($event)"></app-checkbox-list>
+    <app-radio-button-list title="Installation Mode" [items]="installationModes" *ngIf="shouldShowComponent(keys.installationMode)" (onSelectedItemChanged)="installationModeChanged($event)"></app-radio-button-list>
     <div id="text-box-container" *ngIf="this.isExtensionRule()">
         <h4>Extension Information</h4>
-        <app-validated-text-box title="Update URL (for InstallationMode)" defaultValue="https://edge.microsoft.com/extensionwebstorebase/v1/crx"></app-validated-text-box>
-        <app-validated-text-box title="Minimum Version" [validator]="minVersionValidator" defaultValue="0"></app-validated-text-box>
+        <app-validated-text-box title="Update URL (for InstallationMode)" defaultValue="https://edge.microsoft.com/extensionwebstorebase/v1/crx" (onValueChange)="updateUrlChanged($event)" [validator]="urlValidator"></app-validated-text-box>
+        <app-validated-text-box title="Minimum Version" [validator]="minVersionValidator" defaultValue="0" (onValueChange)="minVersionChanged($event)"></app-validated-text-box>
     </div>
-    <app-item-list title="Install Sources" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.installSources)"></app-item-list>
-    <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeAllowedHosts)"></app-item-list>
-    <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeBlockedHosts)"></app-item-list>
-    <app-radio-button-list title="Toolbar Pin" [items]="pinningModes" *ngIf="shouldShowComponent(keys.toolbarPin)"></app-radio-button-list>
+    <app-item-list title="Install Sources" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.installSources)" (onListChanged)="installSourcesChanged($event)"></app-item-list>
+    <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeAllowedHosts)" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
+    <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeBlockedHosts)" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
+    <app-radio-button-list title="Toolbar Pin" [items]="pinningModes" *ngIf="shouldShowComponent(keys.toolbarPin)" (onSelectedItemChanged)="toolbarPinChanged($event)"></app-radio-button-list>
 </div>
 <br><br>
-<button (click)="onSave.emit()">Save Rule</button>
-<button (click)="onDiscard.emit()">Discard Rule</button>
+<button (click)="onSaveClick()">Save Rule</button>
+<button (click)="onDiscardClick()">Discard Rule</button>

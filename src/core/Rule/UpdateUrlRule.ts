@@ -18,6 +18,7 @@ export class UpdateUrlRule extends Rule {
 
   canAddKeyValuePair(keyValuePair: KeyValuePair): boolean {
     let key = keyValuePair.getKey();
+    let value = keyValuePair.getValue();
 
     if (!UpdateUrlRule.allowedKeys.includes(key)) {
       return false;
@@ -25,9 +26,9 @@ export class UpdateUrlRule extends Rule {
 
     if (
       key === InstallationMode.key &&
-      key !== InstallationModes.mode.blocked &&
-      key !== InstallationModes.mode.allowed &&
-      key !== InstallationModes.mode.removed
+      value !== InstallationModes.mode.blocked &&
+      value !== InstallationModes.mode.allowed &&
+      value !== InstallationModes.mode.removed
     ) {
       return false;
     }

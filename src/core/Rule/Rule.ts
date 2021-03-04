@@ -1,7 +1,7 @@
 import { KeyValuePair } from '../KeyValuePair/KeyValuePair';
 
 export default abstract class Rule {
-  protected keyValuePairs: KeyValuePair[];
+  protected keyValuePairs: KeyValuePair[] = [];
 
   abstract canAddKeyValuePair(keyValuePair: KeyValuePair): boolean;
   abstract getScope(): string;
