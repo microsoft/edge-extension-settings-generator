@@ -4,12 +4,13 @@ import RegexValidator from './Validators/RegexValidator';
 export default class MinVersion extends ValidatedKeyValuePair {
   private validator = new RegexValidator(/^[0-9]+([.][0-9]+)*$/);
 
-  getKey() {
-    return 'minimum_version_required';
+  constructor(version: string) {
+    super();
+    super.setValue(version);
   }
 
-  setValue(version: string) {
-    super.setValue(version);
+  getKey() {
+    return 'minimum_version_required';
   }
 
   protected getValidator(): RegexValidator {

@@ -17,12 +17,13 @@ export class Modes {
 export default class InstallationMode extends ValidatedKeyValuePair {
   private validator = new ExactMatchValidator(Modes.getList());
 
-  getKey() {
-    return 'installation_mode';
+  constructor(installationMode: string) {
+    super();
+    super.setValue(installationMode);
   }
 
-  setValue(installationMode: string) {
-    super.setValue(installationMode);
+  getKey() {
+    return 'installation_mode';
   }
 
   protected getValidator(): ExactMatchValidator {
