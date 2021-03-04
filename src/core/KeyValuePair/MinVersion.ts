@@ -1,8 +1,9 @@
+import { ExtensionVersionRegex } from '../constants';
 import { ValidatedKeyValuePair } from './KeyValuePair';
 import RegexValidator from './Validators/RegexValidator';
 
 export default class MinVersion extends ValidatedKeyValuePair {
-  private validator = new RegexValidator(/^[0-9]+([.][0-9]+)*$/);
+  private validator = new RegexValidator(ExtensionVersionRegex);
 
   constructor(version: string) {
     super();
