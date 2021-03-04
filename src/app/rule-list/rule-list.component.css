@@ -1,0 +1,13 @@
+#rule-list-root-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rule-list-item {
+    height: 100px;
+    border: 2px solid gray;
+    text-align: center;
+    overflow-wrap: break-word;
+    margin: 20px;
+    padding: 10px;
+}

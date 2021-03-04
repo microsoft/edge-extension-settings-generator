@@ -1,0 +1,8 @@
+<h3>Rule List</h3>
+<div id="rule-list-root-container">
+    <h4 *ngIf="getRules().length == 0">No Rules. Rules will appear here when you create them.</h4>
+    <div class="rule-list-item" *ngFor="let rule of getRules()">
+        <h4>{{rule.getScope()}}</h4>
+        <button (click)="removeRule(rule.getScope())">Remove</button>
+    </div>
+</div>

@@ -9,3 +9,4 @@
 </div>
 <hr>
 <app-rule-editor *ngIf="selectedRule" [rule]="selectedRule" (onSave)="deselectRule()" (onDiscard)="deselectRule()"></app-rule-editor>
+<app-rule-list *ngIf="!selectedRule"></app-rule-list>
