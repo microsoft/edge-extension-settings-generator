@@ -1,0 +1,4 @@
+#rule-editor-container {
+    display: flex;
+    flex-wrap: wrap;
+}
