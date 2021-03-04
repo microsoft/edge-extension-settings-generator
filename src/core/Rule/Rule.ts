@@ -9,7 +9,7 @@ export default abstract class Rule {
   addKeyValuePair(keyValuePair: KeyValuePair) {
     if (!this.canAddKeyValuePair(keyValuePair)) {
       throw new Error(
-        `ValidatedRule: ${keyValuePair.getKey()} not supported in rule ${this.getScope()}`
+        `ValidatedRule: ${keyValuePair.getKey()} -> ${keyValuePair.getValue()} not supported in rule ${this.getScope()}`
       );
     }
     this.keyValuePairs.push(keyValuePair);
