@@ -1,0 +1,10 @@
+<form id="rule-selector-root" [formGroup]="formGroup">
+    <select formControlName="selectBox" id="rule-selector-combobox">
+        <option *ngFor="let option of selectBoxItems" [value]="option.value">{{option.displayName}}</option>
+    </select>
+    <input type="text" id="rule-selector-id" formControlName="extensionIdBox" *ngIf="shouldShowExtensionIdBox()"
+        placeholder="Enter extension ID" />
+    <input type="text" id="rule-selector-update-url" formControlName="updateUrlBox" *ngIf="shouldShowUpdateUrlBox()"
+        placeholder="Enter update URL" />
+    <button id="rule-selector-create-button" [disabled]="!formGroup.valid">Create Rule</button>
+</form>

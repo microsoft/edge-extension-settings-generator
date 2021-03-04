@@ -1,0 +1,28 @@
+#rule-selector-root {
+    width: 100%;
+    display: flex;
+}
+
+#rule-selector-combobox {
+    width: 15%;
+}
+
+#rule-selector-id, #rule-selector-update-url {
+    width: 70%;
+}
+
+#rule-selector-create-button {
+    width: 15%;
+}
+
+#rule-selector-id {
+    width: 70%;
+}
+
+#rule-selector-update-url {
+    width: 70%;
+}
+
+#rule-selector-root > select, input, button {
+    margin: 0 10px 0 0;
+}
