@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ExtensionIdRule } from 'src/core/Rule/ExtensionIdRule';
+import { GlobalRule } from 'src/core/Rule/GlobalRule';
+import Rule from 'src/core/Rule/Rule';
+import { UpdateUrlRule } from 'src/core/Rule/UpdateUrlRule';
 
 @Component({
   selector: 'app-rule-selector',
@@ -35,7 +39,7 @@ export class RuleSelectorComponent implements OnInit {
     ]),
   });
 
-  selectedValue = null;
+  @Output() newRuleEvent = new EventEmitter<Rule>();
 
   constructor() {
     this.formGroup.get('selectBox').setValue(this.selectBoxItems[0].value);
@@ -69,6 +73,21 @@ export class RuleSelectorComponent implements OnInit {
     if (this.shouldShowUpdateUrlBox()) {
       this.formGroup.get('updateUrlBox').enable();
     }
+  }
+
+  createRule(): void {
+    const selectedItem = this.formGroup.get('selectBox').value;
+    let newRule: Rule;
+    if (selectedItem === 'global') {
+      newRule = new GlobalRule();
+    }
+    if (selectedItem === 'extension_id') {
+      newRule = new ExtensionIdRule(this.formGroup.get('extension_id').value);
+    }
+    if (selectedItem === 'update_url') {
+      newRule = new UpdateUrlRule(this.formGroup.get('update_url').value);
+    }
+    this.newRuleEvent.emit(newRule);
   }
 
   ngOnInit(): void {}

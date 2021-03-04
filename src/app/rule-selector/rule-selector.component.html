@@ -6,5 +6,5 @@
         placeholder="Enter extension ID" />
     <input type="text" id="rule-selector-update-url" formControlName="updateUrlBox" *ngIf="shouldShowUpdateUrlBox()"
         placeholder="Enter update URL" />
-    <button id="rule-selector-create-button" [disabled]="!formGroup.valid">Create Rule</button>
+    <button id="rule-selector-create-button" [disabled]="!formGroup.valid" (click)="createRule()">Create Rule</button>
 </form>
