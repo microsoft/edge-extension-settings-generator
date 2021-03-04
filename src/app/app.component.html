@@ -10,3 +10,8 @@
 <hr>
 <app-rule-editor *ngIf="selectedRule" [rule]="selectedRule" (onSave)="deselectRule()" (onDiscard)="deselectRule()"></app-rule-editor>
 <app-rule-list *ngIf="!selectedRule"></app-rule-list>
+<div id="update-urls">
+    <hr>
+    <p><b>Edge Store Update Url: </b>https://edge.microsoft.com/extensionwebstorebase/v1/crx</p>
+    <p><b>Chrome Store Update Url: </b>https://clients2.google.com/service/update2/crx</p>
+</div>
