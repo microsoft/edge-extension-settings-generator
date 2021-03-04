@@ -4,8 +4,10 @@
     <button (click)="deselectAll()">Deselect All</button>
     <div id="checkbox-container">
         <span *ngFor="let item of items; let idx = index" class="checkbox-span">
-            <input type="checkbox" [formControl]="checkboxes.controls[idx]" [id]="item + '_' + idx"/>
-            <label [for]="item + '_' + idx">{{item}}</label>
+            <label>
+                <input type="checkbox" [formControl]="checkboxes.controls[idx]">
+                {{item}}
+            </label>
         </span>
     </div>
 </div>

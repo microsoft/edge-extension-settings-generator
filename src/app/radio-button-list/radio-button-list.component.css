@@ -1,0 +1,17 @@
+#radio-btn-list-root-container {
+    border: 2px solid grey;
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+    text-align: center;
+}
+
+#radio-btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.radio-btn-span {
+    margin: 5px;
+}

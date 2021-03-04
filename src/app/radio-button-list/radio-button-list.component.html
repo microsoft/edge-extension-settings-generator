@@ -1,0 +1,11 @@
+<div id="radio-btn-list-root-container">
+    <h4>{{title}}</h4>
+    <div id="radio-btn-container">
+        <span *ngFor="let item of items; let idx = index" class="radio-btn-span">
+            <label>
+                <input type="radio" [formControl]="radioButton" [value]="item"/>
+                {{item}}
+            </label>
+        </span>
+    </div>
+</div>
