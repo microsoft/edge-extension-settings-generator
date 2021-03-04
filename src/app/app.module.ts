@@ -8,6 +8,7 @@ import { RuleEditorComponent } from './rule-editor/rule-editor.component';
 import { CheckboxListComponent } from './checkbox-list/checkbox-list.component';
 import { RadioButtonListComponent } from './radio-button-list/radio-button-list.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { ValidatedTextBoxComponent } from './validated-text-box/validated-text-box.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ItemListComponent } from './item-list/item-list.component';
     RuleEditorComponent,
     CheckboxListComponent,
     RadioButtonListComponent,
-    ItemListComponent
+    ItemListComponent,
+    ValidatedTextBoxComponent
   ],
   imports: [
     BrowserModule,
