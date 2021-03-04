@@ -165,7 +165,7 @@ export class RuleEditorComponent implements OnInit {
   }
 
   onSaveClick(): void {
-    this.ruleService.addRule(this.rule);
+    this.ruleService.replaceRule(this.rule);
     this.onSave.emit();
   }
 
