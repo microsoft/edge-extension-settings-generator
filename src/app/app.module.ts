@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RuleSelectorComponent } from './rule-selector/rule-selector.component';
 import { RuleEditorComponent } from './rule-editor/rule-editor.component';
+import { CheckboxListComponent } from './checkbox-list/checkbox-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RuleSelectorComponent,
-    RuleEditorComponent
+    RuleEditorComponent,
+    CheckboxListComponent
   ],
   imports: [
     BrowserModule,
