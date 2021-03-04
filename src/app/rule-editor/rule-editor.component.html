@@ -2,4 +2,5 @@
     <app-checkbox-list title="Allowed Types" [items]="extensionTypesList" *ngIf="shouldShowComponent(keys.allowedTypes)"></app-checkbox-list>
     <app-checkbox-list title="Blocked Permissions" [items]="permissionsList" *ngIf="shouldShowComponent(keys.blockedPermissions)"></app-checkbox-list>
     <app-radio-button-list title="Installation Mode" [items]="installationModes" *ngIf="shouldShowComponent(keys.installationMode)"></app-radio-button-list>
+    <app-radio-button-list title="Toolbar Pin" [items]="pinningModes" *ngIf="shouldShowComponent(keys.toolbarPin)"></app-radio-button-list>
 </div>

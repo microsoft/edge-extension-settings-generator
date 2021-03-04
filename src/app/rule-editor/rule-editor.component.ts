@@ -9,6 +9,7 @@ import InstallationMode, {Modes as InstallationModes} from 'src/core/KeyValuePai
 import InstallSources from 'src/core/KeyValuePair/InstallSources';
 import RuntimeAllowedHosts from 'src/core/KeyValuePair/RuntimeAllowedHosts';
 import RuntimeBlockedHosts from 'src/core/KeyValuePair/RuntimeBlockedHosts';
+import ToolbarPin, { PinningMode } from 'src/core/KeyValuePair/ToolbarPin';
 import Rule from 'src/core/Rule/Rule';
 
 @Component({
@@ -26,10 +27,12 @@ export class RuleEditorComponent implements OnInit {
     allowedTypes: AllowedTypes.key,
     runtimeBlockedHosts: RuntimeBlockedHosts.key,
     runtimeAllowedHosts: RuntimeAllowedHosts.key,
+    toolbarPin: ToolbarPin.key,
   };
 
   permissionsList = Permissions.getList();
   extensionTypesList = ExtensionTypes.getList();
+  pinningModes = PinningMode.getList();
 
   get installationModes(): string[] {
     if (this.isExtensionRule()) {
