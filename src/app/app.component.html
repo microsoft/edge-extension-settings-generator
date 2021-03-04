@@ -4,8 +4,8 @@
         <h4>v0.1.0</h4>
     </div>
     <div id="rule-creator">
-        <app-rule-selector (newRuleEvent)="onRuleSelected($event)"></app-rule-selector>
+        <app-rule-selector (newRuleEvent)="onRuleSelected($event)" [disabled]="selectedRule"></app-rule-selector>
     </div>
 </div>
 <hr>
-<app-rule-editor *ngIf="selectedRule" [rule]="selectedRule"></app-rule-editor>
+<app-rule-editor *ngIf="selectedRule" [rule]="selectedRule" (onSave)="deselectRule()" (onDiscard)="deselectRule()"></app-rule-editor>

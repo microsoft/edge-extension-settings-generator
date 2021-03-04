@@ -13,4 +13,8 @@ export class AppComponent {
   onRuleSelected(rule: Rule): void {
     this.selectedRule = rule;
   }
+
+  deselectRule(): void {
+    this.selectedRule = null;
+  }
 }

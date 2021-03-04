@@ -12,3 +12,6 @@
     <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeBlockedHosts)"></app-item-list>
     <app-radio-button-list title="Toolbar Pin" [items]="pinningModes" *ngIf="shouldShowComponent(keys.toolbarPin)"></app-radio-button-list>
 </div>
+<br><br>
+<button (click)="onSave.emit()">Save Rule</button>
+<button (click)="onDiscard.emit()">Discard Rule</button>

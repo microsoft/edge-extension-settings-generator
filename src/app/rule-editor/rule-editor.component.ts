@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ExtensionVersionRegex, UrlMatchPatternRegex } from 'src/core/constants';
 import AllowedTypes, {
   ExtensionTypes,
@@ -25,6 +25,8 @@ import Rule from 'src/core/Rule/Rule';
 })
 export class RuleEditorComponent implements OnInit {
   @Input() rule: Rule;
+  @Output() onSave = new EventEmitter<null>();
+  @Output() onDiscard = new EventEmitter<null>();
   matchPatterValidator = new RegexValidator(UrlMatchPatternRegex);
   minVersionValidator = new RegexValidator(ExtensionVersionRegex);
 

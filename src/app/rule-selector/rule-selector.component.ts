@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExtensionIdRule } from 'src/core/Rule/ExtensionIdRule';
 import { GlobalRule } from 'src/core/Rule/GlobalRule';
@@ -11,6 +11,9 @@ import { UpdateUrlRule } from 'src/core/Rule/UpdateUrlRule';
   styleUrls: ['./rule-selector.component.css'],
 })
 export class RuleSelectorComponent implements OnInit {
+  
+  @Input() disabled: boolean;
+
   selectBoxItems = [
     {
       value: 'global',
