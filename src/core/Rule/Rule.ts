@@ -25,4 +25,8 @@ export default abstract class Rule {
     this.removeKey(keyValuePair.getKey());
     this.addKeyValuePair(keyValuePair);
   }
+
+  getKeyValuePairs(): KeyValuePair[] {
+    return this.keyValuePairs;
+  }
 }

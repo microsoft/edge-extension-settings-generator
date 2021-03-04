@@ -1,4 +1,4 @@
-#rule-list-root-container {
+#rule-list-flex-container {
     display: flex;
     flex-wrap: wrap;
 }

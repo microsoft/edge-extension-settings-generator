@@ -22,4 +22,8 @@ export class RuleListComponent implements OnInit {
     this.ruleService.removeRule(scope);
   }
 
+  getJson(): string {
+    return this.ruleService.jsonify();
+  }
+
 }

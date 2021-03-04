@@ -23,4 +23,21 @@ export class RuleService {
   getRules(): Rule[] {
     return this.rules;
   }
+
+  jsonify(): string {
+    let settings = {};
+
+    this.rules.forEach(rule => {
+      let scope = rule.getScope();
+      settings[scope] = {};
+
+      rule.getKeyValuePairs().forEach(pair => {
+        let key = pair.getKey();
+        let val = pair.getValue();
+        settings[scope][key] = val;
+      });
+    });
+
+    return JSON.stringify(settings);
+  }
 }
