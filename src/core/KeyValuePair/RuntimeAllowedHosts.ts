@@ -4,6 +4,7 @@ import RegexValidator from './Validators/RegexValidator';
 
 export default class RuntimeAllowedHosts extends ValidatedKeyValuePair {
   private validator = new RegexValidator(UrlMatchPatternRegex);
+  static key: string = 'runtime_allowed_hosts';  
 
   constructor(matchPatternList: string[]) {
     super();
@@ -11,7 +12,7 @@ export default class RuntimeAllowedHosts extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'runtime_allowed_hosts';
+    return RuntimeAllowedHosts.key;
   }
 
   protected getValidator(): RegexValidator {

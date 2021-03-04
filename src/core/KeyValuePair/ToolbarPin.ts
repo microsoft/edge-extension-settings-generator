@@ -13,13 +13,14 @@ export class PinningMode {
 
 export default class ToolbarPin extends ValidatedKeyValuePair {
   private validator = new ExactMatchValidator(PinningMode.getList());
+  static key: string = 'toolbar_pin';  
 
   constructor(pinMode: string) {
     super();
     super.setValue(pinMode);
   }
   getKey() {
-    return 'toolbar_pin';
+    return ToolbarPin.key;
   }
 
   protected getValidator(): ExactMatchValidator {

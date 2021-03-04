@@ -4,6 +4,7 @@ import RegexValidator from './Validators/RegexValidator';
 
 export default class UpdateUrl extends ValidatedKeyValuePair {
   private validator = new RegexValidator(UrlMatchPatternRegex);
+  static key: string = 'update_url';  
 
   constructor(url: string) {
     super();
@@ -11,7 +12,7 @@ export default class UpdateUrl extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'update_url';
+    return UpdateUrl.key;
   }
 
   protected getValidator(): RegexValidator {

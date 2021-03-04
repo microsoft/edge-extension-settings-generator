@@ -4,6 +4,7 @@ import RegexValidator from './Validators/RegexValidator';
 
 export default class MinVersion extends ValidatedKeyValuePair {
   private validator = new RegexValidator(ExtensionVersionRegex);
+  static key: string = 'minimum_version_required';  
 
   constructor(version: string) {
     super();
@@ -11,7 +12,7 @@ export default class MinVersion extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'minimum_version_required';
+    return MinVersion.key;
   }
 
   protected getValidator(): RegexValidator {

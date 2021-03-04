@@ -17,6 +17,7 @@ export class ExtensionTypes {
 
 export default class AllowedTypes extends ValidatedKeyValuePair {
   private validator = new ExactMatchValidator(ExtensionTypes.getList());
+  static key: string = 'allowed_types';
 
   constructor(allowedTypes: string[]) {
     super();
@@ -24,7 +25,7 @@ export default class AllowedTypes extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'allowed_types';
+    return AllowedTypes.key;
   }
 
   protected getValidator(): ExactMatchValidator {

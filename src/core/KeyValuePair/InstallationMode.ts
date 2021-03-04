@@ -16,6 +16,7 @@ export class Modes {
 
 export default class InstallationMode extends ValidatedKeyValuePair {
   private validator = new ExactMatchValidator(Modes.getList());
+  static key: string = 'installation_mode';  
 
   constructor(installationMode: string) {
     super();
@@ -23,7 +24,7 @@ export default class InstallationMode extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'installation_mode';
+    return InstallationMode.key;
   }
 
   protected getValidator(): ExactMatchValidator {

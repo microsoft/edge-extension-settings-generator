@@ -4,6 +4,7 @@ import RegexValidator from './Validators/RegexValidator';
 
 export default class InstallSources extends ValidatedKeyValuePair {
   private validator = new RegexValidator(UrlMatchPatternRegex);
+  static key: string = 'install_sources';  
 
   constructor(matchPatternList: string[]) {
     super();
@@ -11,7 +12,7 @@ export default class InstallSources extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'install_sources';
+    return InstallSources.key;
   }
 
   protected getValidator(): RegexValidator {

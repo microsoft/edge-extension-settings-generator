@@ -77,6 +77,7 @@ export class Permissions {
 
 export default class BlockedPermissions extends ValidatedKeyValuePair {
   private validator = new ExactMatchValidator(Permissions.getList());
+  static key: string = 'blocked_permissions';
 
   constructor(permissionsList: string[]) {
     super();
@@ -84,7 +85,7 @@ export default class BlockedPermissions extends ValidatedKeyValuePair {
   }
 
   getKey() {
-    return 'blocked_permissions';
+    return BlockedPermissions.key;
   }
 
   protected getValidator(): ExactMatchValidator {
