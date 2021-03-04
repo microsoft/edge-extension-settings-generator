@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UrlMatchPatternRegex } from 'src/core/constants';
 import AllowedTypes, {
   ExtensionTypes,
 } from 'src/core/KeyValuePair/AllowedTypes';
@@ -10,6 +11,7 @@ import InstallSources from 'src/core/KeyValuePair/InstallSources';
 import RuntimeAllowedHosts from 'src/core/KeyValuePair/RuntimeAllowedHosts';
 import RuntimeBlockedHosts from 'src/core/KeyValuePair/RuntimeBlockedHosts';
 import ToolbarPin, { PinningMode } from 'src/core/KeyValuePair/ToolbarPin';
+import RegexValidator from 'src/core/KeyValuePair/Validators/RegexValidator';
 import Rule from 'src/core/Rule/Rule';
 
 @Component({
@@ -19,6 +21,7 @@ import Rule from 'src/core/Rule/Rule';
 })
 export class RuleEditorComponent implements OnInit {
   @Input() rule: Rule;
+  matchPatterValidator = new RegexValidator(UrlMatchPatternRegex);
 
   keys = {
     installationMode: InstallationMode.key,
