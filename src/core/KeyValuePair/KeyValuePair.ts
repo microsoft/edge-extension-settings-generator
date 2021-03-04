@@ -1,12 +1,13 @@
+import Validator from './Validators/Validator';
+
 export interface KeyValuePair {
   getKey(): string;
   getValue(): any;
   setValue(value: any): void;
 }
 
-export abstract class StringStringPair implements KeyValuePair {
-  private value: string;
-  protected allowedValues: string[] = [];
+export abstract class ValidatedKeyValuePair implements KeyValuePair {
+  private value: any;
 
   abstract getKey();
 
@@ -14,10 +15,12 @@ export abstract class StringStringPair implements KeyValuePair {
     return this.value;
   }
 
-  setValue(value: string): void {
-    if (this.allowedValues.length > 0 && !this.allowedValues.includes(value)) {
-      throw new Error('StringStringPair: value not allowed: ' + value);
+  setValue(value: any): void {
+    if (!this.getValidator().validate(value)) {
+      throw new Error('ValidatedKeyValuePair: value not allowed: ' + value);
     }
     this.value = value;
   }
+
+  protected abstract getValidator(): Validator;
 }
