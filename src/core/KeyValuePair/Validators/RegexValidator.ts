@@ -1,7 +1,7 @@
 import Validator from './Validator';
 
-export default class ExactMatchValidator implements Validator {
-  constructor(private allowedItems: string[]) {}
+export default class RegexValidator implements Validator {
+  constructor(private regex: RegExp) {}
 
   validate(value: any): boolean {
     if (Array.isArray(value)) {
@@ -15,7 +15,7 @@ export default class ExactMatchValidator implements Validator {
   validateList(list: string[]): boolean {
     let invalidItemFound: boolean = false;
     list.forEach((item) => {
-      if (!this.allowedItems.includes(item)) {
+      if (!this.regex.test(item)) {
         invalidItemFound = true;
       }
     });
@@ -23,6 +23,6 @@ export default class ExactMatchValidator implements Validator {
   }
 
   validateSingleString(item: string): boolean {
-    return this.allowedItems.includes(item);
+    return this.regex.test(item);
   }
 }
