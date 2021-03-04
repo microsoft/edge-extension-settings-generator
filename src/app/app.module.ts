@@ -10,6 +10,7 @@ import { RadioButtonListComponent } from './radio-button-list/radio-button-list.
 import { ItemListComponent } from './item-list/item-list.component';
 import { ValidatedTextBoxComponent } from './validated-text-box/validated-text-box.component';
 import { RuleListComponent } from './rule-list/rule-list.component';
+import { AdvancedUiComponent } from './advanced-ui/advanced-ui.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RuleListComponent } from './rule-list/rule-list.component';
     RadioButtonListComponent,
     ItemListComponent,
     ValidatedTextBoxComponent,
-    RuleListComponent
+    RuleListComponent,
+    AdvancedUiComponent
   ],
   imports: [
     BrowserModule,

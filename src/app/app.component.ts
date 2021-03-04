@@ -7,14 +7,4 @@ import Rule from 'src/core/Rule/Rule';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
-  selectedRule: Rule = null;
-
-  onRuleSelected(rule: Rule): void {
-    this.selectedRule = rule;
-  }
-
-  deselectRule(): void {
-    this.selectedRule = null;
-  }
 }

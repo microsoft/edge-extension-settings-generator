@@ -1,0 +1,30 @@
+#top-container {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+}
+
+#container > div {
+    margin: 10px;
+}
+
+#title-box {
+    flex-grow: 1;
+}
+
+#rule-creator {
+    flex-grow: 100;
+}
+
+#content-container {
+    padding-bottom: 120px;
+}
+
+#update-urls {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    text-align: left;
+}
