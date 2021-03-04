@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RuleSelectorComponent } from './rule-selector/rule-selector.component';
+import { RuleEditorComponent } from './rule-editor/rule-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RuleSelectorComponent
+    RuleSelectorComponent,
+    RuleEditorComponent
   ],
   imports: [
     BrowserModule,

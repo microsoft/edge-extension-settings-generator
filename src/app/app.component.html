@@ -1,9 +1,11 @@
-<div id="container">
+<div id="top-container">
     <div id="title-box">
         <h2>ExtensionSettings Generator</h2>
         <h4>v0.1.0</h4>
     </div>
     <div id="rule-creator">
-        <app-rule-selector></app-rule-selector>
+        <app-rule-selector (newRuleEvent)="onRuleSelected($event)"></app-rule-selector>
     </div>
 </div>
+<hr>
+<app-rule-editor *ngIf="selectedRule"></app-rule-editor>

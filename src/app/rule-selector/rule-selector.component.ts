@@ -82,10 +82,10 @@ export class RuleSelectorComponent implements OnInit {
       newRule = new GlobalRule();
     }
     if (selectedItem === 'extension_id') {
-      newRule = new ExtensionIdRule(this.formGroup.get('extension_id').value);
+      newRule = new ExtensionIdRule(this.formGroup.get('extensionIdBox').value);
     }
     if (selectedItem === 'update_url') {
-      newRule = new UpdateUrlRule(this.formGroup.get('update_url').value);
+      newRule = new UpdateUrlRule(this.formGroup.get('updateUrlBox').value);
     }
     this.newRuleEvent.emit(newRule);
   }
