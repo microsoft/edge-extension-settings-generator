@@ -1,5 +1,5 @@
 import { ValidatedKeyValuePair } from './KeyValuePair';
-import StringListValidator from './Validators/ListValidator';
+import ExactMatchValidator from './Validators/ExactMatchValidator';
 
 export class Permissions {
   public static permissions = {
@@ -76,7 +76,7 @@ export class Permissions {
 }
 
 export default class BlockedPermissions extends ValidatedKeyValuePair {
-  private validator = new StringListValidator(Permissions.getList());
+  private validator = new ExactMatchValidator(Permissions.getList());
 
   getKey() {
     return 'blocked_permissions';
@@ -86,7 +86,7 @@ export default class BlockedPermissions extends ValidatedKeyValuePair {
     super.setValue(permissionsList);
   }
 
-  protected getValidator(): StringListValidator {
+  protected getValidator(): ExactMatchValidator {
     return this.validator;
   }
 }

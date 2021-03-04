@@ -1,5 +1,5 @@
 import { ValidatedKeyValuePair } from './KeyValuePair';
-import StringListValidator from './Validators/ListValidator';
+import ExactMatchValidator from './Validators/ExactMatchValidator';
 
 export class ExtensionTypes {
   public static types = {
@@ -17,7 +17,7 @@ export class ExtensionTypes {
 
 export default class AllowedTypes extends ValidatedKeyValuePair {
 
-  private validator = new StringListValidator(ExtensionTypes.getList());
+  private validator = new ExactMatchValidator(ExtensionTypes.getList());
 
   getKey() {
     return 'allowed_types';
@@ -27,7 +27,7 @@ export default class AllowedTypes extends ValidatedKeyValuePair {
     super.setValue(allowedTypes);
   }
 
-  protected getValidator(): StringListValidator {
+  protected getValidator(): ExactMatchValidator {
     return this.validator;
   }
 }

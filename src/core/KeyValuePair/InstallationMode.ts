@@ -1,5 +1,5 @@
 import { ValidatedKeyValuePair } from './KeyValuePair';
-import SingleStringValidator from './Validators/SingleStringValidator';
+import ExactMatchValidator from './Validators/ExactMatchValidator';
 
 export class Modes {
   public static mode = {
@@ -15,7 +15,7 @@ export class Modes {
 }
 
 export default class InstallationMode extends ValidatedKeyValuePair {
-  private validator = new SingleStringValidator(Modes.getList());
+  private validator = new ExactMatchValidator(Modes.getList());
 
   getKey() {
     return 'installation_mode';
@@ -25,7 +25,7 @@ export default class InstallationMode extends ValidatedKeyValuePair {
     super.setValue(installationMode);
   }
 
-  protected getValidator(): SingleStringValidator {
+  protected getValidator(): ExactMatchValidator {
     return this.validator;
   }
 }

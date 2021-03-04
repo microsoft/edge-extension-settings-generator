@@ -1,5 +1,5 @@
 import { ValidatedKeyValuePair } from './KeyValuePair';
-import SingleStringValidator from './Validators/SingleStringValidator';
+import ExactMatchValidator from './Validators/ExactMatchValidator';
 
 export class PinningMode {
   public static mode = {
@@ -12,7 +12,7 @@ export class PinningMode {
 }
 
 export default class ToolbarPin extends ValidatedKeyValuePair {
-  private validator = new SingleStringValidator(PinningMode.getList());
+  private validator = new ExactMatchValidator(PinningMode.getList());
 
   getKey() {
     return 'toolbar_pin';
@@ -22,7 +22,7 @@ export default class ToolbarPin extends ValidatedKeyValuePair {
     super.setValue(pinMode);
   }
 
-  protected getValidator(): SingleStringValidator {
+  protected getValidator(): ExactMatchValidator {
     return this.validator;
   }
 }
