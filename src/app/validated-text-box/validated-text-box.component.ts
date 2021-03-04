@@ -17,7 +17,7 @@ export class ValidatedTextBoxComponent implements OnInit {
 
   validatorWrapper(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
-      if (!this.validator) return null;
+      if (!this.validator || !control.value) return null;
       return this.validator.validate(control.value)
         ? null
         : { validator: { value: control.value } };
@@ -32,7 +32,7 @@ export class ValidatedTextBoxComponent implements OnInit {
     ]);
     this.textBoxControl.setValue(this.defaultValue);
     this.textBoxControl.valueChanges.subscribe(this.textBoxValueChanged.bind(this));
-    this.onValueChange.emit(this.defaultValue);
+    if (this.defaultValue) this.onValueChange.emit(this.defaultValue);
   }
 
   textBoxValueChanged(value: string) {
