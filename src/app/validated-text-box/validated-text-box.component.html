@@ -1,1 +1,6 @@
-<input type="text" [placeholder]="title" [formControl]="textBoxControl" [class.alert]="!textBoxControl.valid" />
+<div>
+    <label>
+        <span class="label">{{title}}</span>
+        <input type="text" [placeholder]="title" [formControl]="textBoxControl" [class.alert]="!textBoxControl.valid" />
+    </label>
+</div>

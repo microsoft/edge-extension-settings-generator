@@ -1,16 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UrlMatchPatternRegex } from 'src/core/constants';
+import { ExtensionVersionRegex, UrlMatchPatternRegex } from 'src/core/constants';
 import AllowedTypes, {
   ExtensionTypes,
 } from 'src/core/KeyValuePair/AllowedTypes';
 import BlockedPermissions, {
   Permissions,
 } from 'src/core/KeyValuePair/BlockedPermissions';
-import InstallationMode, {Modes as InstallationModes} from 'src/core/KeyValuePair/InstallationMode';
+import InstallationMode, {
+  Modes as InstallationModes,
+} from 'src/core/KeyValuePair/InstallationMode';
 import InstallSources from 'src/core/KeyValuePair/InstallSources';
+import MinVersion from 'src/core/KeyValuePair/MinVersion';
 import RuntimeAllowedHosts from 'src/core/KeyValuePair/RuntimeAllowedHosts';
 import RuntimeBlockedHosts from 'src/core/KeyValuePair/RuntimeBlockedHosts';
 import ToolbarPin, { PinningMode } from 'src/core/KeyValuePair/ToolbarPin';
+import UpdateUrl from 'src/core/KeyValuePair/UpdateUrl';
 import RegexValidator from 'src/core/KeyValuePair/Validators/RegexValidator';
 import Rule from 'src/core/Rule/Rule';
 
@@ -22,6 +26,7 @@ import Rule from 'src/core/Rule/Rule';
 export class RuleEditorComponent implements OnInit {
   @Input() rule: Rule;
   matchPatterValidator = new RegexValidator(UrlMatchPatternRegex);
+  minVersionValidator = new RegexValidator(ExtensionVersionRegex);
 
   keys = {
     installationMode: InstallationMode.key,
@@ -31,6 +36,8 @@ export class RuleEditorComponent implements OnInit {
     runtimeBlockedHosts: RuntimeBlockedHosts.key,
     runtimeAllowedHosts: RuntimeAllowedHosts.key,
     toolbarPin: ToolbarPin.key,
+    updateUrl: UpdateUrl.key,
+    minVersion: MinVersion.key
   };
 
   permissionsList = Permissions.getList();
@@ -41,7 +48,7 @@ export class RuleEditorComponent implements OnInit {
     if (this.isExtensionRule()) {
       return InstallationModes.getListForExtensionScope();
     }
-    return InstallationModes.getListForGlobalScope()
+    return InstallationModes.getListForGlobalScope();
   }
 
   constructor() {}

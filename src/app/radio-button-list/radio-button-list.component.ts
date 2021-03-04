@@ -18,7 +18,7 @@ export class RadioButtonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.radioButtonName = `radio_btn_${Math.trunc(Math.random() * 100000000)}`;
-    this.radioButton = new FormControl(this.items[0]);
+    this.radioButton = new FormControl('');
     this.radioButton.valueChanges.subscribe(this.onValueChanged.bind(this));
   }
 

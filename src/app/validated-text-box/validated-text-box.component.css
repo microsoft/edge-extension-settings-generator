@@ -3,5 +3,14 @@
 }
 
 input {
-    width: 100%;
+    width: 250px;
+}
+
+div {
+    margin: 50px 0px 10px 0px;
+}
+
+.label {
+    font-weight: bold;
+    font-size: smaller;
 }

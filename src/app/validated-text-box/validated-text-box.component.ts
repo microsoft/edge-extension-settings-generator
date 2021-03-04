@@ -32,6 +32,7 @@ export class ValidatedTextBoxComponent implements OnInit {
     ]);
     this.textBoxControl.setValue(this.defaultValue);
     this.textBoxControl.valueChanges.subscribe(this.textBoxValueChanged.bind(this));
+    this.onValueChange.emit(this.defaultValue);
   }
 
   textBoxValueChanged(value: string) {
