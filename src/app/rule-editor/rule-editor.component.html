@@ -7,7 +7,7 @@
         <app-validated-text-box title="Update URL (for InstallationMode)" (onValueChange)="updateUrlChanged($event)" [validator]="urlValidator"></app-validated-text-box>
         <app-validated-text-box title="Minimum Version" [validator]="minVersionValidator" (onValueChange)="minVersionChanged($event)"></app-validated-text-box>
     </div>
-    <app-item-list title="Install Sources" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.installSources)" (onListChanged)="installSourcesChanged($event)"></app-item-list>
+    <app-item-list title="Install Sources" placeholder="URL" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.installSources)" (onListChanged)="installSourcesChanged($event)"></app-item-list>
     <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeAllowedHosts)" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
     <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeBlockedHosts)" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
     <app-radio-button-list title="Toolbar Pin" [items]="pinningModes" *ngIf="shouldShowComponent(keys.toolbarPin)" (onSelectedItemChanged)="toolbarPinChanged($event)"></app-radio-button-list>

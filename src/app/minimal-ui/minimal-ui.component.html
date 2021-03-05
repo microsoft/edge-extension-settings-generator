@@ -5,8 +5,8 @@
     <div id="box-container">
         <app-checkbox-list title="Allowed Types" [items]="extensionTypesList" (onSelectedItemsChanged)="allowedTypesChanged($event)"></app-checkbox-list>
         <app-checkbox-list title="Blocked Permissions" [items]="permissionsList" (onSelectedItemsChanged)="blockedPermissionsChanged($event)"></app-checkbox-list>
-        <app-item-list title="Blocked Extensions" [validator]="extensionIdValidator" (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
-        <app-item-list title="Force Installed Extensions" [validator]="forceInstallEntryValidator" (onListChanged)="forceInstallListChanged($event)"></app-item-list>
+        <app-item-list title="Blocked Extensions" placeholder="Extension Id" [validator]="extensionIdValidator" (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
+        <app-item-list title="Force Installed Extensions" placeholder="extension_id;update_url" [validator]="forceInstallEntryValidator" (onListChanged)="forceInstallListChanged($event)"></app-item-list>
         <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
         <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
     </div>

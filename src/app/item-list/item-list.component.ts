@@ -9,6 +9,7 @@ import Validator from 'src/core/KeyValuePair/Validators/Validator';
 })
 export class ItemListComponent implements OnInit {
   @Input() title: string;
+  @Input() placeholder: string;
   @Input() validator: Validator;
   @Output() onListChanged = new EventEmitter<string[]>();
 
