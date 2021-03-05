@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +13,13 @@ import { ValidatedTextBoxComponent } from './validated-text-box/validated-text-b
 import { RuleListComponent } from './rule-list/rule-list.component';
 import { AdvancedUiComponent } from './advanced-ui/advanced-ui.component';
 import { MinimalUiComponent } from './minimal-ui/minimal-ui.component';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: 'minimal', component: MinimalUiComponent },
+  { path: 'advanced', component: AdvancedUiComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
@@ -24,11 +32,13 @@ import { MinimalUiComponent } from './minimal-ui/minimal-ui.component';
     ValidatedTextBoxComponent,
     RuleListComponent,
     AdvancedUiComponent,
-    MinimalUiComponent
+    MinimalUiComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
