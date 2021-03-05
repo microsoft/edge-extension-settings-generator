@@ -11,6 +11,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { ValidatedTextBoxComponent } from './validated-text-box/validated-text-box.component';
 import { RuleListComponent } from './rule-list/rule-list.component';
 import { AdvancedUiComponent } from './advanced-ui/advanced-ui.component';
+import { MinimalUiComponent } from './minimal-ui/minimal-ui.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdvancedUiComponent } from './advanced-ui/advanced-ui.component';
     ItemListComponent,
     ValidatedTextBoxComponent,
     RuleListComponent,
-    AdvancedUiComponent
+    AdvancedUiComponent,
+    MinimalUiComponent
   ],
   imports: [
     BrowserModule,
