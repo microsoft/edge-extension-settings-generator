@@ -14,3 +14,5 @@ export const UrlMatchPatternRegex = new RegExp(
 );
 export const ExtensionVersionRegex = /^[0-9]+([.][0-9]+)*$/;
 export const UrlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+export const ExtensionIdRegex = /[a-p]{32}/;
+export const ForceInstallEntryRegex = /[a-p]{32};https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;

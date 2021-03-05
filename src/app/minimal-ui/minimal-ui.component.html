@@ -1,1 +1,13 @@
-<p>minimal-ui works!</p>
+<div id="content-container">
+    <h2>ExtensionSettings Generator</h2>
+    <h4>v0.1.0</h4>
+    <hr/>
+    <div id="box-container">
+        <app-checkbox-list title="Allowed Types" [items]="extensionTypesList" (onSelectedItemsChanged)="allowedTypesChanged($event)"></app-checkbox-list>
+        <app-checkbox-list title="Blocked Permissions" [items]="permissionsList" (onSelectedItemsChanged)="blockedPermissionsChanged($event)"></app-checkbox-list>
+        <app-item-list title="Blocked Extensions" [validator]="extensionIdValidator" (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
+        <app-item-list title="Force Installed Extensions" [validator]="forceInstallEntryValidator" (onListChanged)="forceInstallListChanged($event)"></app-item-list>
+        <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
+        <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
+    </div>
+</div>
