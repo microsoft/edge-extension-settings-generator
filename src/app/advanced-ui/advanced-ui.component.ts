@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChromeStoreUpdateUrl, EdgeStoreUpdateUrl } from 'src/core/constants';
 import Rule from 'src/core/Rule/Rule';
 
 @Component({
@@ -7,6 +8,9 @@ import Rule from 'src/core/Rule/Rule';
   styleUrls: ['./advanced-ui.component.css']
 })
 export class AdvancedUiComponent implements OnInit {
+
+  edgeStoreUpdateUrl = EdgeStoreUpdateUrl;
+  chromeStoreUpdateUrl = ChromeStoreUpdateUrl;
 
   ngOnInit(): void {
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UrlMatchPatternRegex } from 'src/core/constants';
+import { EdgeStoreUpdateUrl, UrlMatchPatternRegex } from 'src/core/constants';
 import { ExtensionVersionRegex } from 'src/core/constants';
 import { ExtensionIdRegex } from 'src/core/constants';
 import { ForceInstallEntryRegex } from 'src/core/constants';
@@ -112,7 +112,7 @@ export class MinimalUiComponent implements OnInit {
       let [extensionId, updateUrl] = item.split(";");
       let rule = new ExtensionIdRule(extensionId);
       rule.addKeyValuePair(new InstallationMode(InstallationModes.mode.forceInstalled));
-      rule.addKeyValuePair(new UpdateUrl(updateUrl));
+      rule.addKeyValuePair(new UpdateUrl(updateUrl || EdgeStoreUpdateUrl));
       this.ruleService.addRule(rule);
     });
   }
