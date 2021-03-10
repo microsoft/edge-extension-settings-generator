@@ -10,4 +10,8 @@
         <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
         <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
     </div>
+    <br><br>
+    <button (click)="generateJSON()">Generate JSON</button>
+    <br><br>
+    <textarea *ngIf="generatedJson" disabled="true" cols="150" rows="10">{{generatedJson}}</textarea>
 </div>

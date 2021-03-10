@@ -40,4 +40,8 @@ export class RuleService {
 
     return JSON.stringify(settings);
   }
+
+  reset() {
+    this.rules = [];
+  }
 }
