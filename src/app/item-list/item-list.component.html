@@ -6,7 +6,7 @@
         <tr *ngFor="let item of listItems; let i = index">
             <td><b>{{i + 1}}</b></td>
             <td class="item-col">{{item}}</td>
-            <td><a href="#" (click)="removeItem(i)">Remove</a></td>
+            <td><button (click)="removeItem(i)">Remove</button></td>
         </tr>
     </table>
 </div>
