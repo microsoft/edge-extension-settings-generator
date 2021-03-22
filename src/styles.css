@@ -2,6 +2,10 @@
 
 details {
     margin: 15px 0 15px 0;
-    padding: 10px 0 10px 0;
     background-color: papayawhip;
+}
+
+summary {
+    padding: 10px 0 10px 0;
+    cursor: pointer;
 }
