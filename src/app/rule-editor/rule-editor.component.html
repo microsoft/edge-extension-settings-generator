@@ -2,11 +2,17 @@
     <app-checkbox-list title="Allowed Types" [items]="extensionTypesList" *ngIf="shouldShowComponent(keys.allowedTypes)" (onSelectedItemsChanged)="allowedTypesChanged($event)"></app-checkbox-list>
     <app-checkbox-list title="Blocked Permissions" [items]="permissionsList" *ngIf="shouldShowComponent(keys.blockedPermissions)" (onSelectedItemsChanged)="blockedPermissionsChanged($event)"></app-checkbox-list>
     <app-radio-button-list title="Installation Mode" [items]="installationModes" *ngIf="shouldShowComponent(keys.installationMode)" (onSelectedItemChanged)="installationModeChanged($event)"></app-radio-button-list>
-    <div id="text-box-container" *ngIf="this.isExtensionRule()">
-        <h4>Extension Information</h4>
-        <app-validated-text-box title="Update URL (for InstallationMode)" (onValueChange)="updateUrlChanged($event)" [validator]="urlValidator"></app-validated-text-box>
-        <app-validated-text-box title="Minimum Version" [validator]="minVersionValidator" (onValueChange)="minVersionChanged($event)"></app-validated-text-box>
-    </div>
+    <details>
+        <summary>
+            <h4>Extension Information</h4>
+        </summary>
+        <div id="text-box-container">
+            <app-validated-text-box title="Update URL (for InstallationMode)" (onValueChange)="updateUrlChanged($event)"
+                [validator]="urlValidator"></app-validated-text-box>
+            <app-validated-text-box title="Minimum Version" [validator]="minVersionValidator"
+                (onValueChange)="minVersionChanged($event)"></app-validated-text-box>
+        </div>
+    </details>
     <app-item-list title="Install Sources" placeholder="URL" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.installSources)" (onListChanged)="installSourcesChanged($event)"></app-item-list>
     <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeAllowedHosts)" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
     <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" *ngIf="shouldShowComponent(keys.runtimeBlockedHosts)" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>

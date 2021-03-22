@@ -1,12 +1,7 @@
-#rule-editor-container {
-    display: flex;
-    flex-wrap: wrap;
+#text-box-container {
+    text-align: center;
 }
 
-#text-box-container {
-    border: 2px solid grey;
-    width: 300px;
-    height: 400px;
-    overflow: auto;
-    text-align: center;
+summary > h4 {
+    display: inline;
 }

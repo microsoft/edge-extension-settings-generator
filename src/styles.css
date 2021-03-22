@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+details {
+    margin: 15px 0 15px 0;
+    padding: 10px 0 10px 0;
+    background-color: papayawhip;
+}

@@ -8,6 +8,7 @@ import { FormArray, FormControl } from '@angular/forms';
 })
 export class CheckboxListComponent implements OnInit {
   @Input() title: string;
+  @Input() description: string = "";
   @Input() items: string[];
   @Output() onSelectedItemsChanged = new EventEmitter<string[]>();
 

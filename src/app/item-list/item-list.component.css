@@ -1,12 +1,32 @@
-#item-list-root-container {
-    border: 2px solid grey;
-    width: 300px;
-    height: 400px;
-    overflow: auto;
+h4 {
+    display: inline;
+}
+
+#content {
     text-align: center;
 }
 
 table {
-    width: 300px;
+    width: 50%;
     text-align: left;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+table, th, td {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px 0 5px 0;
+}
+
+.remove-col {
+    text-align: right;
+}
+
+input {
+    width: 50%;
 }

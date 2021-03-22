@@ -1,8 +1,8 @@
-#radio-btn-list-root-container {
-    border: 2px solid grey;
-    width: 300px;
-    height: 400px;
-    overflow: auto;
+h4 {
+    display: inline;
+}
+
+#content {
     text-align: center;
 }
 

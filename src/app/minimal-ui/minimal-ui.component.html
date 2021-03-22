@@ -3,12 +3,12 @@
     <h4>v0.1.0</h4>
     <hr/>
     <div id="box-container">
-        <app-checkbox-list title="Define the type of add-ons that you want to allow in your organization" [items]="extensionTypesList" (onSelectedItemsChanged)="allowedTypesChanged($event)"></app-checkbox-list>
-        <app-checkbox-list title="Select the permissions you want to block" [items]="permissionsList" (onSelectedItemsChanged)="blockedPermissionsChanged($event)"></app-checkbox-list>
-        <app-item-list title="Add the CRX ID's of the extensions you want to block" placeholder="Extension Id" [validator]="extensionIdValidator" (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
-        <app-item-list title="Force Installed Extensions" placeholder="extension_id;update_url" [validator]="forceInstallEntryValidator" (onListChanged)="forceInstallListChanged($event)"></app-item-list>
-        <app-item-list title="Runtime Allowed Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
-        <app-item-list title="Runtime Blocked Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
+        <app-checkbox-list title="Allowed Types" description="Define the type of add-ons that you want to allow in your organization" [items]="extensionTypesList" (onSelectedItemsChanged)="allowedTypesChanged($event)"></app-checkbox-list>
+        <app-checkbox-list title="Blocked Permissions" description="Select the permissions you want to block" [items]="permissionsList" (onSelectedItemsChanged)="blockedPermissionsChanged($event)"></app-checkbox-list>
+        <app-item-list title="Blocked Extensions" description="Add the CRX ID's of the extensions you want to block" placeholder="Extension Id" [validator]="extensionIdValidator" (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
+        <app-item-list title="Force Installed Extensions" description="Force Installed Extensions" placeholder="extension_id;update_url" [validator]="forceInstallEntryValidator" (onListChanged)="forceInstallListChanged($event)"></app-item-list>
+        <app-item-list title="Runtime Allowed Hosts" description="Runtime Allowed Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeAllowedHostsChanged($event)"></app-item-list>
+        <app-item-list title="Runtime Blocked Hosts" description="Runtime Blocked Hosts" [validator]="matchPatterValidator" (onListChanged)="runtimeBlockedHostsChanged($event)"></app-item-list>
     </div>
     <br><br>
     <button (click)="generateJSON()">Generate JSON</button>

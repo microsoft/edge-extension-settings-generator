@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class RadioButtonListComponent implements OnInit {
   @Input() title: string;
+  @Input() description: string = "";
   @Input() items: string[];
   @Output() onSelectedItemChanged = new EventEmitter<string>();
 
