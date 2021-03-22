@@ -14,6 +14,7 @@ import { RuleListComponent } from './rule-list/rule-list.component';
 import { AdvancedUiComponent } from './advanced-ui/advanced-ui.component';
 import { MinimalUiComponent } from './minimal-ui/minimal-ui.component';
 import { HomeComponent } from './home/home.component';
+import { CollapsibleComponent } from './collapsible/collapsible.component';
 
 const routes: Routes = [
   { path: 'minimal', component: MinimalUiComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
     RuleListComponent,
     AdvancedUiComponent,
     MinimalUiComponent,
-    HomeComponent
+    HomeComponent,
+    CollapsibleComponent
   ],
   imports: [
     BrowserModule,

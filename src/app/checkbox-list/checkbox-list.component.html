@@ -1,19 +1,13 @@
-<details>
-    <summary>
-        <h4>{{title}}</h4>
-    </summary>
-    <div id="content">
-        <p>{{description}}</p>
-        <button (click)="selectAll()">Select All</button>
-        <button (click)="deselectAll()">Deselect All</button>
-        <br><br>
-        <div id="checkbox-container">
-            <span *ngFor="let item of items; let idx = index" class="checkbox-span">
-                <label>
-                    <input type="checkbox" [formControl]="checkboxes.controls[idx]">
-                    {{item}}
-                </label>
-            </span>
-        </div>
+<div>
+    <button (click)="selectAll()">Select All</button>
+    <button (click)="deselectAll()">Deselect All</button>
+    <br><br>
+    <div id="checkbox-container">
+        <span *ngFor="let item of items; let idx = index" class="checkbox-span">
+            <label>
+                <input type="checkbox" [formControl]="checkboxes.controls[idx]">
+                {{item}}
+            </label>
+        </span>
     </div>
-</details>
+</div>

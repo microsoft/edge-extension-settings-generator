@@ -1,0 +1,21 @@
+details {
+    margin: 15px 0 15px 0;
+    background-color: papayawhip;
+}
+
+summary {
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+}
+
+h4 {
+    display: inline;
+}
+
+#content {
+    text-align: center;
+}
+
+#description {
+    font-weight: 600;
+}

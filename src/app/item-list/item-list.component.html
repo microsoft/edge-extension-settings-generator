@@ -1,18 +1,12 @@
-<details>
-    <summary>
-        <h4>{{title}}</h4>
-    </summary>
-    <div id="content">
-        <p>{{description}}</p>
-        <input type="text" [placeholder]="placeholder ? placeholder : ''" [formControl]="inputField" />
-        <button (click)="addItem()" [disabled]="!inputField.valid">Add</button>
-        <br><br>
-        <table>
-            <tr *ngFor="let item of listItems; let i = index">
-                <td><b>{{i + 1}}</b></td>
-                <td class="item-col">{{item}}</td>
-                <td class="remove-col"><button (click)="removeItem(i)">Remove</button></td>
-            </tr>
-        </table>
-    </div>
-</details>
+<div>
+    <input type="text" [placeholder]="placeholder ? placeholder : ''" [formControl]="inputField" />
+    <button (click)="addItem()" [disabled]="!inputField.valid">Add</button>
+    <br><br>
+    <table>
+        <tr *ngFor="let item of listItems; let i = index">
+            <td><b>{{i + 1}}</b></td>
+            <td class="item-col">{{item}}</td>
+            <td class="remove-col"><button (click)="removeItem(i)">Remove</button></td>
+        </tr>
+    </table>
+</div>
