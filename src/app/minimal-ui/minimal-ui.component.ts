@@ -43,6 +43,7 @@ export class MinimalUiComponent implements OnInit {
   private globalBlockedHosts: string[] = [];
   private globalAllowedHosts: string[] = [];
   private blockList: string[] = [];
+  private allowList: string[] = [];
   private forceInstallList: string[] = [];
   private keys = {
     installationMode: InstallationMode.key,
@@ -80,6 +81,10 @@ export class MinimalUiComponent implements OnInit {
     this.blockList = newBlockList;
   }
 
+  allowedExtensionsChanged(newAllowlist: string[]) {
+    this.allowList = newAllowlist;
+  }
+
   forceInstallListChanged(newForceInstallList: string[]) {
     this.forceInstallList = newForceInstallList;
   }
@@ -88,6 +93,7 @@ export class MinimalUiComponent implements OnInit {
     this.ruleService.reset();
     this.addGlobalRule();
     this.setBlockListedExtensions();
+    this.setAllowListedExtensions();
     this.setForceInstalledExtensions();
     this.generatedJson = this.ruleService.jsonify();
   }
@@ -136,6 +142,14 @@ export class MinimalUiComponent implements OnInit {
     this.blockList.forEach(extensionId => {
       let rule = new ExtensionIdRule(extensionId);
       rule.addKeyValuePair(new InstallationMode(InstallationModes.mode.blocked));
+      this.ruleService.addRule(rule);
+    });
+  }
+
+  private setAllowListedExtensions() {
+    this.allowList.forEach(extensionId => {
+      let rule = new ExtensionIdRule(extensionId);
+      rule.addKeyValuePair(new InstallationMode(InstallationModes.mode.allowed));
       this.ruleService.addRule(rule);
     });
   }

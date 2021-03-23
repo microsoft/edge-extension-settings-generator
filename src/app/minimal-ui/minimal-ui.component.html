@@ -28,6 +28,11 @@
                 (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
         </app-collapsible>
 
+        <app-collapsible title="Allowed Extensions" description="Add the CRX ID's of the extensions you want to allow">
+            <app-item-list placeholder="Extension Id" [validator]="extensionIdValidator"
+                (onListChanged)="allowedExtensionsChanged($event)"></app-item-list>
+        </app-collapsible>
+
         <app-collapsible title="Force Installed Extensions" description="Force Installed Extensions">
             <app-item-list placeholder="extension_id;update_url" [validator]="forceInstallEntryValidator"
                 (onListChanged)="forceInstallListChanged($event)"></app-item-list>
