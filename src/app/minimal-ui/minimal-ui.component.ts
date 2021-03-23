@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { EdgeStoreUpdateUrl, UrlMatchPatternRegex } from 'src/core/constants';
 import { ExtensionVersionRegex } from 'src/core/constants';
 import { ExtensionIdRegex } from 'src/core/constants';
@@ -33,10 +34,14 @@ export class MinimalUiComponent implements OnInit {
   forceInstallEntryValidator = new RegexValidator(ForceInstallEntryRegex);
   permissionsList = Permissions.getList();
   extensionTypesList = ExtensionTypes.getList();
+  blockAllExtensionsCheckbox = new FormControl();
   generatedJson: string;
 
   // Private Data
-  private globalRule: GlobalRule = new GlobalRule();
+  private allowedTypes: string[] = [];
+  private globalBlockedPermissions: string[] = [];
+  private globalBlockedHosts: string[] = [];
+  private globalAllowedHosts: string[] = [];
   private blockList: string[] = [];
   private forceInstallList: string[] = [];
   private keys = {
@@ -56,31 +61,19 @@ export class MinimalUiComponent implements OnInit {
   ngOnInit(): void {}
 
   allowedTypesChanged(newTypes: string[]) {
-    if (newTypes.length == 0) {
-      return this.globalRule.removeKey(this.keys.allowedTypes);
-    }
-    this.globalRule.replaceKeyValuePair(new AllowedTypes(newTypes));
+    this.allowedTypes = newTypes;
   }
 
   blockedPermissionsChanged(newPermissions: string[]) {
-    if (newPermissions.length == 0) {
-      return this.globalRule.removeKey(this.keys.blockedPermissions);
-    }
-    this.globalRule.replaceKeyValuePair(new BlockedPermissions(newPermissions));
+    this.globalBlockedPermissions = newPermissions;
   }
 
   runtimeAllowedHostsChanged(newHosts: string[]) {
-    if (newHosts.length == 0) {
-      return this.globalRule.removeKey(this.keys.runtimeAllowedHosts);
-    }
-    this.globalRule.replaceKeyValuePair(new RuntimeAllowedHosts(newHosts));
+    this.globalAllowedHosts = newHosts;
   }
 
   runtimeBlockedHostsChanged(newHosts: string[]) {
-    if (newHosts.length == 0) {
-      return this.globalRule.removeKey(this.keys.runtimeBlockedHosts);
-    }
-    this.globalRule.replaceKeyValuePair(new RuntimeBlockedHosts(newHosts));
+    this.globalBlockedHosts = newHosts;
   }
 
   blockedExtensionsChanged(newBlockList: string[]) {
@@ -93,10 +86,50 @@ export class MinimalUiComponent implements OnInit {
 
   generateJSON() {
     this.ruleService.reset();
-    this.ruleService.replaceRule(this.globalRule);
+    this.addGlobalRule();
     this.setBlockListedExtensions();
     this.setForceInstalledExtensions();
     this.generatedJson = this.ruleService.jsonify();
+  }
+
+  private addGlobalRule() {
+    let globalRule = new GlobalRule();
+    this.blockAllExtensionsIfChecked(globalRule);
+    this.setAllowedTypes(globalRule);
+    this.setBlockedPermissions(globalRule);
+    this.setAllowedHosts(globalRule);
+    this.setBlockedHosts(globalRule);
+    this.ruleService.addRule(globalRule);
+  }
+
+  private blockAllExtensionsIfChecked(globalRule: GlobalRule) {
+    if (this.blockAllExtensionsCheckbox.value) {
+      globalRule.addKeyValuePair(new InstallationMode(InstallationModes.mode.blocked));
+    }
+  }
+
+  private setAllowedTypes(globalRule: GlobalRule) {
+    if (this.allowedTypes.length > 0) {
+      globalRule.replaceKeyValuePair(new AllowedTypes(this.allowedTypes));
+    }
+  }
+  
+  private setBlockedPermissions(globalRule: GlobalRule) {
+    if (this.globalBlockedPermissions.length > 0) {
+      globalRule.replaceKeyValuePair(new BlockedPermissions(this.globalBlockedPermissions));
+    }
+  }
+
+  private setAllowedHosts(globalRule: GlobalRule) {
+    if (this.globalAllowedHosts.length > 0) {
+      globalRule.replaceKeyValuePair(new RuntimeAllowedHosts(this.globalAllowedHosts));
+    }
+  }
+  
+  private setBlockedHosts(globalRule: GlobalRule) {
+    if (this.globalBlockedHosts.length > 0) {
+      globalRule.replaceKeyValuePair(new RuntimeBlockedHosts(this.globalBlockedHosts));;
+    }
   }
 
   private setBlockListedExtensions() {

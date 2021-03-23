@@ -19,6 +19,11 @@
         </app-collapsible>
 
         <app-collapsible title="Blocked Extensions" description="Add the CRX ID's of the extensions you want to block">
+            <label>
+                <input type="checkbox" [formControl]="blockAllExtensionsCheckbox">
+                Block all extensions
+            </label>
+            <br><br>
             <app-item-list placeholder="Extension Id" [validator]="extensionIdValidator"
                 (onListChanged)="blockedExtensionsChanged($event)"></app-item-list>
         </app-collapsible>
