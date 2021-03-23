@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { EdgeStoreUpdateUrl, UrlMatchPatternRegex } from 'src/core/constants';
+import { ChromeStoreUpdateUrl, EdgeStoreUpdateUrl, UrlMatchPatternRegex } from 'src/core/constants';
 import { ExtensionVersionRegex } from 'src/core/constants';
 import { ExtensionIdRegex } from 'src/core/constants';
 import { ForceInstallEntryRegex } from 'src/core/constants';
@@ -19,6 +19,7 @@ import UpdateUrl from 'src/core/KeyValuePair/UpdateUrl';
 import RegexValidator from 'src/core/KeyValuePair/Validators/RegexValidator';
 import { ExtensionIdRule } from 'src/core/Rule/ExtensionIdRule';
 import { GlobalRule } from 'src/core/Rule/GlobalRule';
+import { UpdateUrlRule } from 'src/core/Rule/UpdateUrlRule';
 import { RuleService } from '../rule.service';
 
 @Component({
@@ -35,6 +36,7 @@ export class MinimalUiComponent implements OnInit {
   permissionsList = Permissions.getList();
   extensionTypesList = ExtensionTypes.getList();
   blockAllExtensionsCheckbox = new FormControl();
+  blockThirdPartyStoresCheckbox = new FormControl();
   generatedJson: string;
 
   // Private Data
@@ -95,6 +97,7 @@ export class MinimalUiComponent implements OnInit {
     this.setBlockListedExtensions();
     this.setAllowListedExtensions();
     this.setForceInstalledExtensions();
+    this.blockThirdPartyStoresIfChecked();
     this.generatedJson = this.ruleService.jsonify();
   }
 
@@ -162,5 +165,13 @@ export class MinimalUiComponent implements OnInit {
       rule.addKeyValuePair(new UpdateUrl(updateUrl || EdgeStoreUpdateUrl));
       this.ruleService.addRule(rule);
     });
+  }
+
+  private blockThirdPartyStoresIfChecked() {
+    if (this.blockThirdPartyStoresCheckbox.value) {
+      let rule = new UpdateUrlRule(ChromeStoreUpdateUrl);
+      rule.addKeyValuePair(new InstallationMode(InstallationModes.mode.blocked));
+      this.ruleService.addRule(rule);
+    }
   }
 }

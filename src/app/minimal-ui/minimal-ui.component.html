@@ -43,6 +43,13 @@
             <app-checkbox-list [items]="extensionTypesList" (onSelectedItemsChanged)="allowedTypesChanged($event)">
             </app-checkbox-list>
         </app-collapsible>
+
+        <app-collapsible title="Block third party stores">
+            <label>
+                <input type="checkbox" [formControl]="blockThirdPartyStoresCheckbox">
+                    Block third party stores
+            </label>
+        </app-collapsible>
     </div>
     <br><br>
     <button (click)="generateJSON()">Generate JSON</button>
