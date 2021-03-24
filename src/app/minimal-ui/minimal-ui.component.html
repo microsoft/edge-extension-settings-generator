@@ -8,12 +8,12 @@
             </app-checkbox-list>
         </app-collapsible>
 
-        <app-collapsible title="Runtime Blocked Hosts" description="Runtime Blocked Hosts">
+        <app-collapsible title="Runtime Blocked Hosts" description="List  of websites you specify will not be accessible to extensions">
             <app-item-list [validator]="matchPatterValidator" (onListChanged)="runtimeBlockedHostsChanged($event)">
             </app-item-list>
         </app-collapsible>
 
-        <app-collapsible title="Runtime Allowed Hosts" description="Runtime Allowed Hosts">
+        <app-collapsible title="Runtime Allowed Hosts" description="Only the list of websites you specify will be accessible to extensions">
             <app-item-list [validator]="matchPatterValidator" (onListChanged)="runtimeAllowedHostsChanged($event)">
             </app-item-list>
         </app-collapsible>
@@ -33,7 +33,7 @@
                 (onListChanged)="allowedExtensionsChanged($event)"></app-item-list>
         </app-collapsible>
 
-        <app-collapsible title="Force Installed Extensions" description="Force Installed Extensions">
+        <app-collapsible title="Force Installed Extensions" description="Add the extensions that you want to silently install in your organization">
             <app-item-list placeholder="extension_id;update_url" [validator]="forceInstallEntryValidator"
                 (onListChanged)="forceInstallListChanged($event)"></app-item-list>
         </app-collapsible>
